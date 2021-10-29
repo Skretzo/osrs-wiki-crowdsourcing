@@ -8,6 +8,7 @@ import com.Crowdsourcing.item_sighting.CrowdsourcingItemSighting;
 import com.Crowdsourcing.messages.CrowdsourcingMessages;
 import com.Crowdsourcing.mlm.CrowdsourcingMLM;
 import com.Crowdsourcing.monster_examine.MonsterExamine;
+import com.Crowdsourcing.nailbending.CrowdsourcingNailBending;
 import com.Crowdsourcing.npc_sighting.CrowdsourcingNpcSighting;
 import com.Crowdsourcing.npc_respawn.CrowdsourcingNpcRespawn;
 import com.Crowdsourcing.overhead_dialogue.CrowdsourcingOverheadDialogue;
@@ -94,6 +95,9 @@ public class AdvancedCrowdsourcingPlugin extends Plugin
 	@Inject
 	private CrowdsourcingOverheadDialogue overheadDialogue;
 
+	@Inject
+	private CrowdsourcingNailBending nailBending;
+
 	@Override
 	protected void startUp() throws Exception
 	{
@@ -111,6 +115,7 @@ public class AdvancedCrowdsourcingPlugin extends Plugin
 		eventBus.register(npcRespawn);
 		eventBus.register(questLog);
 		eventBus.register(overheadDialogue);
+		eventBus.register(nailBending);
 
 		varbits.startUp();
 	}
@@ -132,6 +137,7 @@ public class AdvancedCrowdsourcingPlugin extends Plugin
 		eventBus.unregister(npcRespawn);
 		eventBus.unregister(questLog);
 		eventBus.unregister(overheadDialogue);
+		eventBus.unregister(nailBending);
 
 		varbits.shutDown();
 	}
